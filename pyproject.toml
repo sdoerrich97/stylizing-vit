@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stylizing-vit"
-version = "0.1.0"
+version = "1.0.0"
 description = "Official PyTorch implementation of the paper 'Stylizing ViT: Anatomy-Preserving Instance Style Transfer for Domain Generalization'."
 authors = [
   { name = "Sebastian Doerrich", email = "sebastian.doerrich@uni-bamberg.de" },
@@ -38,6 +38,7 @@ dependencies = [
     "huggingface_hub>=0.33.2",
     "scipy>=1.15.1",
     "torchvision>=0.20.1",
+    "safetensors>=0.5.2",
 ]
 
 [project.urls]

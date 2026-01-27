@@ -128,3 +128,14 @@ If you use this code in your research, please cite: TBD
 ## License
 
 Apache-2.0
+
+## Changelog
+
+### v1.0.0 (2026-01-27)
+*   **Fix**: Updated model weight loading to support and prioritize `.safetensors` files from Hugging Face, resolving `torch.load` security warnings and compatibility issues.
+*   **New**: Added `.safetensors` dependency to installation requirements.
+*   **Docs**: Added comprehensive examples for Inference, Training, and Augmentation.
+
+### v0.1.0 (2026-01-27)
+*   Initial release accompanying the paper "Stylizing ViT: Anatomy-Preserving Instance Style Transfer for Domain Generalization".
+

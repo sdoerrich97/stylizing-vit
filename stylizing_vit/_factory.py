@@ -81,7 +81,7 @@ def load_pretrained_weights(
         else:
             repo_id = MODEL_REPOS[key]
 
-        print(f"Targeting Hugging Face repository: {repo_id}")
+        # print(f"Targeting Hugging Face repository: {repo_id}")
 
         # 1. Download config.json to register the download statistic
         # This is required because we are not using a library with built-in tracking.
@@ -104,8 +104,21 @@ def load_pretrained_weights(
                              f"Error: {e}")
 
     # Load state dict
-    state_dict = torch.load(checkpoint_path, map_location=map_location,
-                            weights_only=True)
+    if checkpoint_path.endswith(".safetensors"):
+        try:
+            from safetensors.torch import load_file
+        except ImportError:
+            raise ImportError(
+                "The 'safetensors' library is required to load .safetensors files. "
+                "Please install it via `pip install safetensors`."
+            )
+
+        state_dict = load_file(checkpoint_path)
+        # print("Loaded weights using safetensors.")
+    else:
+        state_dict = torch.load(checkpoint_path, map_location=map_location,
+                                weights_only=False)
+        # print("Loaded weights using torch.load.")
 
     # Handle possible state_dict wrapping (e.g. "model", "state_dict" keys)
     if "model" in state_dict:
@@ -122,9 +135,19 @@ def load_pretrained_weights(
             new_state_dict[k] = v
     state_dict = new_state_dict
 
+    # Remove vgg_encoder weights if the model doesn't have a vgg_encoder
+    # (e.g. when initialized with train=False)
+    if not hasattr(model, "vgg_encoder"):
+        keys_to_remove = [k for k in state_dict.keys() if k.startswith("vgg_encoder.")]
+        if keys_to_remove:
+            # print(f"Removing {len(keys_to_remove)} vgg_encoder keys from state_dict "
+            #       "(model initialized with train=False).")
+            for k in keys_to_remove:
+                del state_dict[k]
+
     # Load into model
-    msg = model.load_state_dict(state_dict, strict=True)
-    print(f"Loaded weights successfully: {msg}")
+    model.load_state_dict(state_dict, strict=True)
+    # print(f"Loaded weights successfully: {msg}")
 
 
 def create_model(

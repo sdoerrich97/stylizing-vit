@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="stylizing-vit",
-    version="0.1.0",
+    version="1.0.0",
     description="Official implementation of 'Stylizing ViT' for robust style transfer.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -27,6 +27,7 @@ setup(
         "huggingface_hub>=0.33.2",
         "scipy>=1.15.1",
         "torchvision>=0.20.1",
+        "safetensors>=0.5.2",
     ],
     extras_require={
         "train": [
