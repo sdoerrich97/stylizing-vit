@@ -78,7 +78,7 @@ See [examples/training_demo.ipynb](examples/training_demo.ipynb) for a minimal t
 
 ## Model Zoo
 
-We provide pretrained weights for the following configurations on our [Hugging Face Hub](https://huggingface.co/collections/sdoerrich97/stylizing-vit-6799059f0768407077a16087).
+We provide pretrained weights for the following configurations on our [Hugging Face Hub](https://huggingface.co/collections/sdoerrich97/stylizing-vit).
 
 | Pathology | Dataset | Model Size | Weights Identifier |
 | :--- | :--- | :--- | :--- |
