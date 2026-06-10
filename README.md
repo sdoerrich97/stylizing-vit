@@ -5,7 +5,7 @@
     [<a href="">Publication</a>]
     [<a href="https://pypi.org/project/stylizing-vit/">PyPI</a>]
     [<a href="https://huggingface.co/collections/sdoerrich97/stylizing-vit">Pretrained Weights</a>]
-    [<a href="#citation-">Citation</a>]
+    [<a href="#citation">Citation</a>]
 </p>
 
 
@@ -115,13 +115,12 @@ model = create_model(backbone="base", weights="camelyon17wilds", train=False)
 If you use this code in your research, please cite: TBD
 
 ```bibtex
-@article{doerrich2026stylizingvit,
-  title={Stylizing ViT: Anatomy-Preserving Instance Style Transfer for Domain Generalization},
-  author={Sebastian Doerrich and Francesco Di Salvo and Jonas Alle and Christian Ledig},
+@INPROCEEDINGS{doerrich2026stylizingvit,
+  author={Doerrich, Sebastian and {Di Salvo}, Francesco and Alle, Jonas and Ledig, Christian},
+  booktitle={2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)}, 
+  title={Stylizing ViT: Anatomy-Preserving Instance Style Transfer for Domain Generalization}, 
   year={2026},
-  eprint={2601.17586},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
+  doi={10.1109/ISBI61048.2026.11515498}
 }
 ```
 
