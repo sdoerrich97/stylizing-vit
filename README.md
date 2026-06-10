@@ -2,7 +2,7 @@
 
 <p align="center">
     [<a href="https://arxiv.org/abs/2601.17586v1">Preprint</a>]
-    [<a href="">Publication</a>]
+    [<a href="https://ieeexplore.ieee.org/document/11515498">Publication</a>]
     [<a href="https://pypi.org/project/stylizing-vit/">PyPI</a>]
     [<a href="https://huggingface.co/collections/sdoerrich97/stylizing-vit">Pretrained Weights</a>]
     [<a href="#citation">Citation</a>]
@@ -112,7 +112,7 @@ model = create_model(backbone="base", weights="camelyon17wilds", train=False)
 
 ## Citation
 
-If you use this code in your research, please cite: TBD
+If you use this code in your research, please cite:
 
 ```bibtex
 @INPROCEEDINGS{doerrich2026stylizingvit,
